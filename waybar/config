@@ -1,0 +1,128 @@
+[
+  {
+    "battery": {
+      "format": "{icon}  {capacity}%",
+      "format-charging": "  {icon}  {capacity}%",
+      "format-full": "  {icon}  100%",
+      "format-icons": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "format-time": "{H}h{M}m",
+      "interval": 30,
+      "states": {
+        "critical": 10,
+        "warning": 25
+      },
+      "tooltip": false
+    },
+    "clock": {
+      "actions": {
+        "on-click": "mode",
+        "on-scroll-down": "shift_down",
+        "on-scroll-up": "shift_up"
+      },
+      "calendar": {
+        "format": {
+          "days": "<span color='#F3F4F5'><b>{}</b></span>",
+          "months": "<span color='#E6E1CF'><b>{}</b></span>",
+          "today": "<span color='#F07178'><b>{}</b></span>",
+          "weekdays": "<span color='#95E6CB'><b>{}</b></span>",
+          "weeks": "<span color='#FF8F40'><b>{}</b></span>"
+        },
+        "mode": "month",
+        "mode-mon-col": 3,
+        "on_scroll": 1,
+        "weeks-pos": "right"
+      },
+      "format": " {:%H:%M  %d %b}",
+      "interval": 10,
+      "timezone": "Europe/Amsterdam",
+      "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    },
+    "cpu": {
+      "format": " {}%",
+      "interval": 10,
+      "max-length": 10,
+      "on-click": "alacritty -e htop"
+    },
+    "height": 24,
+    "layer": "top",
+    "memory": {
+      "format": "  {}%",
+      "format-alt": " {used:0.1f}G",
+      "interval": 30,
+      "max-length": 10,
+      "on-click": "alacritty -e htop"
+    },
+    "modules-center": [],
+    "modules-left": [
+      "sway/workspaces"
+    ],
+    "modules-right": [
+      "tray",
+      "cpu",
+      "memory",
+      "temperature",
+      "pulseaudio",
+      "pulseaudio#microphone",
+      "network",
+      "battery",
+      "clock"
+    ],
+    "network": {
+      "format-disconnected": "⚠ Disconnected",
+      "format-ethernet": "",
+      "format-linked": "{ifname} (No IP)",
+      "format-wifi": " {essid} ({signalStrength}%)",
+      "on-click": "networkmanager_dmenu",
+      "tooltip-format": "{ifname} via {ipaddr}"
+    },
+    "position": "top",
+    "pulseaudio": {
+      "format": "{icon} {volume}%",
+      "format-icons": {
+        "car": "",
+        "default": [
+          "",
+          "",
+          ""
+        ],
+        "hands-free": "",
+        "headphone": "",
+        "headset": "",
+        "phone": "",
+        "portable": ""
+      },
+      "format-muted": " Muted",
+      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+      "on-click-middle": "pavucontrol -t 1",
+      "on-scroll-down": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%-",
+      "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+",
+      "tooltip": false
+    },
+    "pulseaudio#microphone": {
+      "format": "{format_source}",
+      "format-source": " {volume}%",
+      "format-source-muted": " Muted",
+      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+      "on-click-middle": "pavucontrol -t 4",
+      "on-scroll-down": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SOURCE@ 5%-",
+      "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SOURCE@ 5%+",
+      "tooltip": false
+    },
+    "temperature": {
+      "critical-threshold": 80,
+      "format": "{icon} {temperatureC}°C",
+      "format-icons": [
+        "",
+        "",
+        ""
+      ],
+      "on-click": "alacritty -e htop"
+    }
+  }
+]

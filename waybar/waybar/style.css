@@ -1,0 +1,122 @@
+/* Background, foreground unfocused */
+@define-color background-bar #131721;
+@define-color text-bar #BFBDB6; 
+/* Background, foreground focused */
+@define-color background-item #272D38;
+@define-color text-item #E6E1CF;
+/* Focused workspace */
+@define-color background-focused #3E4B59;
+@define-color text-focused #E6E1CF;
+/* Occupied, urgent */
+@define-color urgent #F07178;
+/* Clock */
+@define-color background-clock #3E4B59;
+@define-color text-clock #E6E1CF;
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: 'Deja Vu Sans Mono', "FontAwesome Nerd Font";
+    font-weight: normal;
+    font-size: 12px;
+    min-height: 0;
+    min-width: 0;
+    margin: 1px 2px;
+}
+
+
+window#waybar {
+    background: @background-bar;
+    /* color not used */
+    color: @text-bar; 
+    padding: 0px 1px;
+}
+
+
+tooltip {
+  background: @background-bar;
+  border: 1px solid @background-focused;
+}
+tooltip label {
+  color: @text-item;
+}
+
+
+#workspaces button {
+    background: @background-item;
+    color: @text-item;
+    border: 2px solid @background-item;
+}
+
+#workspaces button.focused {
+    background: @background-focused;
+    color: @text-focused;
+    border: 2px solid @text-focused;
+}
+
+#workspaces button.urgent {
+    background: @urgent;
+    color: @text-focused;
+    border: 2px solid @urgent;
+}
+
+
+#tray,
+#cpu,
+#memory,
+#temperature,
+#temperature.critical,
+#pulseaudio,
+#pulseaudio.bluetooth,
+#pulseaudio.muted,
+#pulseaudio.microphone, 
+#pulseaudio.microphone.bluetooth, 
+#pulseaudio.microphone.muted, 
+#pulseaudio,
+#network,
+#network.disconnected,
+#battery,
+#clock {
+    padding: 0 5px;
+}
+
+
+#tray {
+    background: transparent;
+    color: @text-bar;
+}
+
+
+#cpu,
+#memory,
+#temperature,
+#pulseaudio,
+#pulseaudio.bluetooth,
+#pulseaudio.microphone,
+#pulseaudio.microphone.bluetooth,
+#battery,
+#network {
+    background: @background-item;
+    color: @text-item;
+}
+
+#battery.warning:not(.charging),
+#pulseaudio.muted,
+#pulseaudio.microphone.source-muted {
+    color: @urgent;
+}
+
+#temperature.critical {
+    background: @urgent;
+}
+
+#network.disconnected {
+    background: @background-item;
+    color: @urgent;
+}
+
+#clock {
+    color: @text-clock;
+    background: @background-clock;
+}
+
